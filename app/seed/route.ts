@@ -1,4 +1,5 @@
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcryptjs');
+;
 import postgres from 'postgres';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 
@@ -9,7 +10,7 @@ async function seedUsers() {
   await sql`
     CREATE TABLE IF NOT EXISTS users (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
+      name VARCHAR(255) NOT NULL,n
       email TEXT NOT NULL UNIQUE,
       password TEXT NOT NULL
     );
